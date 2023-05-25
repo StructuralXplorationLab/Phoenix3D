@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{77535028-0F82-41BE-8185-1FC58D1B0D1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phoenix3D</RootNamespace>
+    <AssemblyName>Phoenix3D</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="gurobi100.netstandard20, Version=10.0.0.0, Culture=neutral, PublicKeyToken=21e2c4b1860157bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gurobi.Optimizer.10.0.1.4\lib\netstandard2.0\gurobi100.netstandard20.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FEA\FEAMethods\FEAMethod.cs" />
+    <Compile Include="FEA\FEAOptions.cs" />
+    <Compile Include="FEA\FiniteElements\Bar3D.cs" />
+    <Compile Include="FEA\FEA.cs" />
+    <Compile Include="FEA\FEAMethods\LinearElastic.cs" />
+    <Compile Include="FEA\FiniteElements\Beam3D.cs" />
+    <Compile Include="FEA\FiniteElements\FiniteElement.cs" />
+    <Compile Include="LinearAlgebra\MatrixDense.cs" />
+    <Compile Include="LinearAlgebra\Solvers\ConjugateGradient.cs" />
+    <Compile Include="LinearAlgebra\Solvers\GaussJordan.cs" />
+    <Compile Include="LinearAlgebra\Vector.cs" />
+    <Compile Include="Model\CrossSections\EC3Helper.cs" />
+    <Compile Include="Model\CrossSections\IPNSection.cs" />
+    <Compile Include="Model\CrossSections\RectangularSection.cs" />
+    <Compile Include="Model\CrossSections\EmptySection.cs" />
+    <Compile Include="Model\CrossSections\GenericSection.cs" />
+    <Compile Include="Model\CrossSections\HEASection.cs" />
+    <Compile Include="Model\CrossSections\RHSection.cs" />
+    <Compile Include="Model\CrossSections\SHSection.cs" />
+    <Compile Include="Model\CrossSections\IPESection.cs" />
+    <Compile Include="Model\CrossSections\UPESection.cs" />
+    <Compile Include="Model\Loads\ILoad.cs" />
+    <Compile Include="Model\Loads\LoadCase.cs" />
+    <Compile Include="Model\Loads\DisplacementBound.cs" />
+    <Compile Include="Model\Loads\PointLoad.cs" />
+    <Compile Include="Model\Materials\EmptyMaterial.cs" />
+    <Compile Include="Model\Materials\IMaterial.cs" />
+    <Compile Include="Model\Materials\Timber.cs" />
+    <Compile Include="Model\Materials\Steel.cs" />
+    <Compile Include="Model\CrossSections\LSection.cs" />
+    <Compile Include="Model\Structure\Bar.cs" />
+    <Compile Include="Model\Structure\Beam.cs" />
+    <Compile Include="Model\Structure\BucklingType.cs" />
+    <Compile Include="Model\Structure\IMember.cs" />
+    <Compile Include="Model\Structure\IMember1D.cs" />
+    <Compile Include="Model\Structure\Node.cs" />
+    <Compile Include="Model\CrossSections\CircularSection.cs" />
+    <Compile Include="Model\CrossSections\CircularHollowSection.cs" />
+    <Compile Include="Model\CrossSections\ICrossSection.cs" />
+    <Compile Include="Model\Structure\SortStructureMembersBy.cs" />
+    <Compile Include="Model\Structure\Structure.cs" />
+    <Compile Include="Model\Structure\Support.cs" />
+    <Compile Include="Optimization\Optimizer.cs" />
+    <Compile Include="Optimization\OptimOptions.cs" />
+    <Compile Include="Optimization\SAND\SANDGurobiDiscreteNP.cs" />
+    <Compile Include="Optimization\SAND\SANDGurobiDiscreteBR.cs" />
+    <Compile Include="Optimization\SAND\SANDGurobiDiscreteGG.cs" />
+    <Compile Include="Optimization\SAND\SANDGurobiDiscreteRS.cs" />
+    <Compile Include="Optimization\SAND\SANDGurobiContinuous.cs" />
+    <Compile Include="Optimization\SAND\SANDGurobiReuse.cs" />
+    <Compile Include="Optimization\TopologyOptimization\DiscreteStockConstrainedOptimization.cs" />
+    <Compile Include="Optimization\TopologyOptimization\DiscreteTrussTopologyOptimization.cs" />
+    <Compile Include="Optimization\TopologyOptimization\ContinuousTrussTopologyOptimization.cs" />
+    <Compile Include="Optimization\GurobiCallback.cs" />
+    <Compile Include="Optimization\Utilization.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reuse\ElementGroup.cs" />
+    <Compile Include="Optimization\Assignment.cs" />
+    <Compile Include="Optimization\Heuristics\BestFit.cs" />
+    <Compile Include="LCA\GHGFrontiers.cs" />
+    <Compile Include="LCA\ILCA.cs" />
+    <Compile Include="Optimization\Objective.cs" />
+    <Compile Include="Optimization\Result.cs" />
+    <Compile Include="Reuse\SortStockElementsBy.cs" />
+    <Compile Include="Reuse\Stock.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\HEASections.csv" />
+    <None Include="Resources\IPESections.csv" />
+    <None Include="Resources\IPNSections.csv" />
+    <None Include="Resources\LSections.csv" />
+    <None Include="Resources\RHSections.csv" />
+    <None Include="Resources\SHSections.csv" />
+    <None Include="Resources\UPESections.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Optimization\GeometryOptimization\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsoleIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo-final.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(USERPROFILE)\AppData\Roaming\Grasshopper\Libraries\$(ProjectName).dll"</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Gurobi.Optimizer.10.0.1.4\build\Gurobi.Optimizer.targets" Condition="Exists('..\packages\Gurobi.Optimizer.10.0.1.4\build\Gurobi.Optimizer.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Gurobi.Optimizer.10.0.1.4\build\Gurobi.Optimizer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Gurobi.Optimizer.10.0.1.4\build\Gurobi.Optimizer.targets'))" />
+  </Target>
+</Project>

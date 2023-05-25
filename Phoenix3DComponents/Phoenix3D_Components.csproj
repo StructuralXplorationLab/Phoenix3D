@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24C68DAC-406C-422E-B6BF-BCE938F1699B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phoenix3D_Components</RootNamespace>
+    <AssemblyName>Phoenix3D_Components</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Eto, Version=2.4.6667.31152, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.3.18090.471\lib\net45\Eto.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_IO, Version=6.3.18090.470, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.6.3.18090.471\lib\net45\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Grasshopper, Version=6.3.18090.470, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.6.3.18090.471\lib\net45\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.UI, Version=6.3.18090.470, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.3.18090.471\lib\net45\Rhino.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon, Version=6.3.18090.470, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.3.18090.471\lib\net45\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Display\ResultsAsAListComponent.cs" />
+    <Compile Include="Model\CrossSection\IPNSection_Component.cs" />
+    <Compile Include="Model\CrossSection\UPESection_Component.cs" />
+    <Compile Include="Phoenix3D_ComponentsInfo.cs" />
+    <Compile Include="Display\DisplayHelper.cs" />
+    <Compile Include="Display\DisplayStock_Component.cs" />
+    <Compile Include="Display\DisplayStructure_Component.cs" />
+    <Compile Include="Display\ColorHelper.cs" />
+    <Compile Include="Display\FEA_Component.cs" />
+    <Compile Include="Display\ResultsComponent.cs" />
+    <Compile Include="Display\SectionHelper.cs" />
+    <Compile Include="Model\CrossSection\HEASection_Component.cs" />
+    <Compile Include="Model\CrossSection\IPESection_Component.cs" />
+    <Compile Include="Model\CrossSection\RectangularSection_Component.cs" />
+    <Compile Include="Model\CrossSection\RHSection_Component.cs" />
+    <Compile Include="Model\Structure\DeconstructCrossSection_Component.cs" />
+    <Compile Include="Model\Structure\DeconstructMembers_Component.cs" />
+    <Compile Include="Model\Structure\DeconstructNodes_Component.cs" />
+    <Compile Include="Model\Structure\DeconstructStructure_Component.cs" />
+    <Compile Include="Model\Loads\DiscplacementBound_Component.cs" />
+    <Compile Include="Model\Materials\Timber_Component.cs" />
+    <Compile Include="Model\Structure\Bar_Component_Extended.cs" />
+    <Compile Include="Optimization\Heuristics\BestFit_Component.cs" />
+    <Compile Include="Optimization\Heuristics\SetBarForces.cs" />
+    <Compile Include="Optimization\Options\DSCOOptions_Component.cs" />
+    <Compile Include="Optimization\Options\CCTOOptions_Component.cs" />
+    <Compile Include="Optimization\TopologyOptimization\DiscreteTrussTopologyOptimization_Component.cs" />
+    <Compile Include="Model\CrossSection\CircularHollowSection_Component.cs" />
+    <Compile Include="Model\CrossSection\CircularSection_Component.cs" />
+    <Compile Include="Model\CrossSection\GenericSection_Component.cs" />
+    <Compile Include="Model\CrossSection\LSection_Component.cs" />
+    <Compile Include="Model\Loads\LoadCase_Component.cs" />
+    <Compile Include="Model\Loads\PointLoad_Component.cs" />
+    <Compile Include="Model\Materials\Steel_Component.cs" />
+    <Compile Include="Model\Structure\Bar_Component.cs" />
+    <Compile Include="Model\Structure\BarProperties_Component.cs" />
+    <Compile Include="Model\Structure\Structure_Component.cs" />
+    <Compile Include="Model\Structure\Support_Component.cs" />
+    <Compile Include="Optimization\TopologyOptimization\ContinuousTrussTopologyOptimization_Component.cs" />
+    <Compile Include="Optimization\Options\DTTOOptions_Component.cs" />
+    <Compile Include="Optimization\TopologyOptimization\DiscreteStockConstrainedOptimization_Component.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reuse\LCAComponent.cs" />
+    <Compile Include="Reuse\Stock_Component.cs" />
+    <Compile Include="Reuse\NewElement_Component.cs" />
+    <Compile Include="Reuse\ReuseElementGroup_Component.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Phoenix3D\Phoenix3D.csproj">
+      <Project>{77535028-0f82-41be-8185-1fc58d1b0d1a}</Project>
+      <Name>Phoenix3D</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UPE_section.png" />
+    <None Include="Resources\IPN_section.png" />
+    <None Include="Resources\best_fit.png" />
+    <None Include="Resources\displacement_bounds.png" />
+    <None Include="Resources\timber.png" />
+    <None Include="Resources\support.png" />
+    <None Include="Resources\structure.png" />
+    <None Include="Resources\stock.png" />
+    <None Include="Resources\steel.png" />
+    <None Include="Resources\reused_element.png" />
+    <None Include="Resources\rectangular_section.png" />
+    <None Include="Resources\rectangular_hollow_section.png" />
+    <None Include="Resources\pointload.png" />
+    <None Include="Resources\new_element.png" />
+    <None Include="Resources\loadcase.png" />
+    <None Include="Resources\lca.png" />
+    <None Include="Resources\L_section.png" />
+    <None Include="Resources\IPE_section.png" />
+    <None Include="Resources\HEA_section.png" />
+    <None Include="Resources\generic_section.png" />
+    <None Include="Resources\fea.png" />
+    <None Include="Resources\DTTO_option.png" />
+    <None Include="Resources\DTTO.png" />
+    <None Include="Resources\DSCO_option.png" />
+    <None Include="Resources\DSCO.png" />
+    <None Include="Resources\display_structure.png" />
+    <None Include="Resources\display_stock.png" />
+    <None Include="Resources\display_results_list.png" />
+    <None Include="Resources\display_results.png" />
+    <None Include="Resources\deconstruct_structure.png" />
+    <None Include="Resources\deconstruct_node.png" />
+    <None Include="Resources\deconstruct_member.png" />
+    <None Include="Resources\deconstruct_cs.png" />
+    <None Include="Resources\CTTO_option.png" />
+    <None Include="Resources\CTTO.png" />
+    <None Include="Resources\circular_section.png" />
+    <None Include="Resources\circular_hollow_section.png" />
+    <None Include="Resources\bar_nx.png" />
+    <None Include="Resources\bar_extended.png" />
+    <None Include="Resources\bar.png" />
+    <None Include="Resources\assign_bar_properties.png" />
+    <None Include="Resources\result.png" />
+    <None Include="Icons\ICON\Phoenix3D_logo_24x24.png" />
+    <None Include="Icons\ICON\IPE.png" />
+    <None Include="Icons\ICON\HEA.png" />
+    <None Include="Icons\ICON\Displacement_bounds-01.png" />
+    <None Include="Icons\ICON\Phoenix_Logo-01.png" />
+    <None Include="Icons\ICON\Display_Stock-01.png" />
+    <None Include="Icons\ICON\Timber-01.png" />
+    <None Include="Icons\ICON\Stock.png" />
+    <None Include="Icons\ICON\Steel-01.png" />
+    <None Include="Icons\ICON\Set_bar_forces-01.png" />
+    <None Include="Icons\ICON\Reused_element-01.png" />
+    <None Include="Icons\ICON\new_element-01.png" />
+    <None Include="Icons\ICON\DTTO-01.png" />
+    <None Include="Icons\ICON\DSCO-01.png" />
+    <None Include="Icons\ICON\Display_structure-01.png" />
+    <None Include="Icons\ICON\Display_results-01.png" />
+    <None Include="Icons\ICON\CTTO-01.png" />
+    <None Include="Icons\ICON\Best_Fit-01.png" />
+    <None Include="Icons\ICON\Assign_Bar_properties-01.png" />
+    <None Include="Icons\LOGO\Phoenix_Logo_24x24-01.png" />
+    <None Include="Icons\LOGO\Phoenix_Logo.png" />
+    <None Include="Icons\ICON\DTTO_Options-01-01.png" />
+    <None Include="Icons\ICON\Square_hollow_section.png" />
+    <None Include="Icons\ICON\Rectangle_section.png" />
+    <None Include="Icons\ICON\Rectangle_hollow_section.png" />
+    <None Include="Icons\ICON\L_section.png" />
+    <None Include="Icons\ICON\IPE_section-01.png" />
+    <None Include="Icons\ICON\HEA_section-01.png" />
+    <None Include="Icons\ICON\FEA-01.png" />
+    <None Include="Icons\ICON\DTTO_Options-01.png" />
+    <None Include="Icons\ICON\DSCO_Options-01.png" />
+    <None Include="Icons\ICON\Deconstruct_crossSection-01.png" />
+    <None Include="Icons\ICON\CTTO_Options-01.png" />
+    <None Include="Icons\LOGO\210616_CARDINAL2.png" />
+    <None Include="Icons\ICON\CARDINALDECON STRUC.png" />
+    <None Include="Icons\ICON\CARDINAL_WOOD.png" />
+    <None Include="Icons\ICON\CARDINAL_SUPPORT.png" />
+    <None Include="Icons\ICON\CARDINAL_STRUC.png" />
+    <None Include="Icons\ICON\CARDINAL_STEEL.png" />
+    <None Include="Icons\ICON\CARDINAL_SECTION G.png" />
+    <None Include="Icons\ICON\CARDINAL_SECTION C.png" />
+    <None Include="Icons\ICON\CARDINAL_SECTION C HOL.png" />
+    <None Include="Icons\ICON\CARDINAL_LOADPNT.png" />
+    <None Include="Icons\ICON\CARDINAL_LOADCASE.png" />
+    <None Include="Icons\ICON\CARDINAL_DISPLACMT.png" />
+    <None Include="Icons\ICON\CARDINAL_DECON NODES.png" />
+    <None Include="Icons\ICON\CARDINAL_DECON MEMB.png" />
+    <None Include="Icons\ICON\CARDINAL_BAR.png" />
+    <None Include="Icons\ICON\CARDINAL_BAR EXT.png" />
+    <Content Include="Icons\ConsoleIconW.ico" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Copy "$(TargetPath)" "$(USERPROFILE)\AppData\Roaming\Grasshopper\Libraries\$(ProjectName).gha"
+Erase "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <Import Project="..\packages\RhinoCommon.6.3.18090.471\build\net45\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.6.3.18090.471\build\net45\RhinoCommon.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\RhinoCommon.6.3.18090.471\build\net45\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.6.3.18090.471\build\net45\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('..\packages\Grasshopper.6.3.18090.471\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.6.3.18090.471\build\net45\Grasshopper.targets'))" />
+  </Target>
+  <Import Project="..\packages\Grasshopper.6.3.18090.471\build\net45\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.6.3.18090.471\build\net45\Grasshopper.targets')" />
+</Project>

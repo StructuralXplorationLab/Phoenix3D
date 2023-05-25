@@ -1,0 +1,71 @@
+﻿using System;
+
+using Grasshopper.Kernel;
+
+using Rhino.Geometry;
+
+using Phoenix3D.Model.Materials;
+using Phoenix3D.Model.CrossSections;
+using Phoenix3D.Model;
+using Phoenix3D.LinearAlgebra;
+
+
+namespace Phoenix3D_Components.Model
+{
+    public class Bar_Component : GH_Component
+    {
+        public Bar_Component() : base("Bar", "Bar (Truss)", "Creates a truss bar element that has pinned ends and only carries normal forces", "Phoenix3D", "   Geometry")
+        {
+        }
+
+        protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
+        {
+            pManager.AddLineParameter("Lines", "LI", "Centerline of the bar", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Material", "MA", "Material of the bar", GH_ParamAccess.item);
+            pManager.AddGenericParameter("CrossSection", "CS", "Bar cross section", GH_ParamAccess.item);
+            pManager.AddVectorParameter("Normal", "NR", "Normal direction of the cross section. Default (0,0,1)", GH_ParamAccess.item, Vector3d.ZAxis);
+            
+            pManager[1].Optional = true;
+        }
+
+        protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
+        {
+            pManager.AddGenericParameter("Bar", "MB", "Bar member", GH_ParamAccess.item);
+        }
+
+        protected override void SolveInstance(IGH_DataAccess DA)
+        {
+            Line L = new Line();
+            IMaterial Mat = new Steel();
+            ICrossSection CS = new CircularSection();
+            Vector3d N = Vector3d.ZAxis;
+
+            DA.GetData(0, ref L);
+            DA.GetData(1, ref Mat);
+            DA.GetData(2, ref CS);
+            DA.GetData(3, ref N);
+
+            Bar B = new Bar(new Node(L.FromX, L.FromY, L.FromZ), new Node(L.ToX, L.ToY, L.ToZ));
+
+            B.SetMaterial(Mat);
+            B.SetCrossSection(CS);
+            B.SetNormal(new Vector(new double[] { N.X, N.Y, N.Z }));
+
+            if(B.NormalOverwritten)
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "The provided member normal " + N.ToString() + " coincides with the member direction. Normal has been overwritten to " + B.Normal.ToString());
+            }
+            DA.SetData(0, B);
+        }
+
+        protected override System.Drawing.Bitmap Icon => Properties.Resources.bar;
+
+        public override Guid ComponentGuid => new Guid("ce4c1b75-be42-49ba-b34e-96cf4e41d369");
+
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.primary; }
+        }
+
+    }
+}
